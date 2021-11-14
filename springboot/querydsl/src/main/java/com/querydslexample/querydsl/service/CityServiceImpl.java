@@ -23,6 +23,16 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
+    public CityEntity getByName(String name) {
+
+        try{
+           return cityRepository.findOne(QCityEntity.cityEntity.name.eq(name)).get();
+        } catch(Exception e){
+            throw new CityException("City is not found !");
+        }
+    }
+
+    @Override
     public void delete(Long id) {
         if(cityRepository.existsById(id))
             cityRepository.deleteById(id);

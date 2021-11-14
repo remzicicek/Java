@@ -14,6 +14,9 @@ public interface CityRestController {
     @PostMapping("/add")
     ResponseEntity<CityEntity> save(@Valid @NotNull @RequestBody CityEntity city);
 
+    @GetMapping("/getCity/{name}")
+    ResponseEntity<CityEntity> getByName(@Valid @NotNull @PathVariable String name);
+
     @DeleteMapping("delete/{id}")
     ResponseEntity<?> delete(@Valid @NotNull @PathVariable Long id);
 }

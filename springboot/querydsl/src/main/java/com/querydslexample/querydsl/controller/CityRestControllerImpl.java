@@ -28,6 +28,12 @@ public class CityRestControllerImpl implements CityRestController{
     }
 
     @Override
+    public ResponseEntity<CityEntity> getByName(String name) {
+        CityEntity getCity = cityService.getByName(name);
+        return new ResponseEntity<>(getCity, HttpStatus.CREATED);
+    }
+
+    @Override
     public ResponseEntity<?> delete(@Valid @NotNull Long id) {
         cityService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
