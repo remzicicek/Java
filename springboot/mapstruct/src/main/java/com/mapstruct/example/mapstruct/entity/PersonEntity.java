@@ -13,10 +13,11 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-/**
- * lombok is taken from Base Entity
- */
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@EqualsAndHashCode
 @Table(name = "people")
 public class PersonEntity extends BaseEntity{
 
