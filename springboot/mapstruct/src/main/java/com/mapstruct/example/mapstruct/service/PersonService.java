@@ -2,13 +2,14 @@ package com.mapstruct.example.mapstruct.service;
 
 
 import com.mapstruct.example.mapstruct.entity.PersonEntity;
+import com.mapstruct.example.mapstruct.model.PersonModel;
 
 public interface PersonService {
 
-    PersonEntity save(PersonEntity person);
+    PersonModel save(PersonModel person);
 
-    PersonEntity getById(Long id);
+    PersonModel getById(Long id);
 
-    void delete(Long id);
+    void deleteById(Long id);
 
 }

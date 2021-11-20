@@ -1,12 +1,11 @@
 package com.mapstruct.example.mapstruct.controller.impl;
 
 import com.mapstruct.example.mapstruct.controller.PersonRestController;
-import com.mapstruct.example.mapstruct.entity.PersonEntity;
+import com.mapstruct.example.mapstruct.model.PersonModel;
 import com.mapstruct.example.mapstruct.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
@@ -23,20 +22,20 @@ public class PersonRestControllerImpl implements PersonRestController {
     }
 
     @Override
-    public ResponseEntity<PersonEntity> save(@Valid @NotNull PersonEntity person) {
-        PersonEntity newPerson = personService.save(person);
+    public ResponseEntity<PersonModel> save(@Valid @NotNull PersonModel person) {
+        PersonModel newPerson = personService.save(person);
         return new ResponseEntity<>(newPerson, HttpStatus.CREATED);
     }
 
     @Override
-    public ResponseEntity<PersonEntity> getById(@Valid @NotNull Long id) {
-        PersonEntity getPerson = personService.getById(id);
-        return new ResponseEntity<>(getPerson, HttpStatus.CREATED);
+    public ResponseEntity<PersonModel> getById(@Valid @NotNull Long id) {
+        PersonModel getPerson = personService.getById(id);
+        return new ResponseEntity<>(getPerson, HttpStatus.OK);
     }
 
     @Override
-    public ResponseEntity<?> delete(@Valid @NotNull Long id) {
-        personService.delete(id);
+    public ResponseEntity<?> deleteById(@Valid @NotNull Long id) {
+        personService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
